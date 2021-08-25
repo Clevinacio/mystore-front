@@ -1,0 +1,20 @@
+.bg-color{
+    background-color: rgb(15, 52, 82);
+}
+
+.nav-right{
+    li{
+        padding-right: 10px;
+    }
+}
+
+.footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(43, 40, 40);
+   color: white;
+   text-align: center;
+   padding: 30px;
+}
