@@ -19,13 +19,16 @@ const routes: Routes = [
                 path: 'products', loadChildren: () => import('../products/products.module').then(m => m.ProductsModule)
             },
             {
+                path: 'products/:id', loadChildren: () => import('../product-details/product-details.module').then(m => m.ProductDetailsModule)
+            },
+            {
                 path: 'cart', loadChildren: () => import('../cart/cart.module').then(m => m.CartModule)
             },
             {
-                path: 'form', loadChildren: () => import('../form/form.module').then(m => m.FormModule)
+                path: 'cart/finish', loadChildren: () => import('../order-result/order-result.module').then(m => m.OrderResultModule)
             },
             {
-                path: 'products/:id', loadChildren: () => import('../product-details/product-details.module').then(m => m.ProductDetailsModule)
+                path: 'form', loadChildren: () => import('../form/form.module').then(m => m.FormModule)
             },
         ]
     }
