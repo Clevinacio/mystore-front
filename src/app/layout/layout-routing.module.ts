@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LayoutComponent } from "./layout.component";
+
 const routes: Routes = [
     {
         path: '',
@@ -19,6 +20,9 @@ const routes: Routes = [
             },
             {
                 path: 'cart', loadChildren: () => import('../cart/cart.module').then(m => m.CartModule)
+            },
+            {
+                path: 'form', loadChildren: () => import('../form/form.module').then(m => m.FormModule)
             },
         ]
     }
