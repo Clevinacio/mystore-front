@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { faShoppingCart, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-    selector: 'main-layout',
-    templateUrl: './layout.component.html',
-    styleUrls: ['./layout.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class HeaderComponent implements OnInit {
     isMenuCollapsed = true;
     faCart: IconDefinition = faShoppingCart;
     nome: string = 'Cleverton Inácio';
     constructor() { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+    }
 
 }

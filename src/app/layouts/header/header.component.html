@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-color">
-    <a class="navbar-brand" routerLink=""><b>MyStore</b></a>
+    <a class="navbar-brand" routerLink="/home"><b>MyStore</b></a>
     <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="products" (click)="isMenuCollapsed = true">Produtos
+                <a class="nav-link" routerLink="/products" (click)="isMenuCollapsed = true">Produtos
                     <span class="sr-only">(current)</span>
                 </a>
 
@@ -17,7 +17,7 @@
 
         <ul class="navbar-nav ml-auto nav-right">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="cart" tabindex="-1" (click)="isMenuCollapsed = true">
+                <a class="nav-link" routerLink="/cart" tabindex="-1" (click)="isMenuCollapsed = true">
                     <fa-icon [icon]="faCart"></fa-icon>
                 </a>
             </li>
@@ -28,18 +28,3 @@
 
     </div>
 </nav>
-
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <div class="justify-content-md-center">
-            <div class="col-md-auto">
-                <span>©Todos os direitos reservados</span>
-            </div>
-        </div>
-    </div>
-
-</footer>
