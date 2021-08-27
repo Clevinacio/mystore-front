@@ -8,11 +8,10 @@
     <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#" (click)="isMenuCollapsed = true">Admin<span
-                        class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" routerLink="products" (click)="isMenuCollapsed = true">Produtos</a>
+                <a class="nav-link" routerLink="products" (click)="isMenuCollapsed = true">Produtos
+                    <span class="sr-only">(current)</span>
+                </a>
+
             </li>
         </ul>
 
