@@ -6,16 +6,18 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from './layouts/layout.module';
+import { ComponentsModule } from './components/components.module';
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         RouterModule.forRoot([]),
         NgbModule,
-        LayoutModule
+        LayoutModule,
+        ComponentsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

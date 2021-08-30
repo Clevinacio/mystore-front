@@ -1,0 +1,15 @@
+<div class="product-card col-5" >
+  <div class="product-card-header">
+    <h3>{{ product.name }}</h3>
+    <h4>R$ {{ product.price.toFixed(2) }}</h4>
+  </div>
+  <div>
+    Descrição:
+    <div>
+      {{ product.desc }}
+    </div>
+  </div>
+  <div class="product-card-footer">
+    <button>Comprar</button>
+  </div>
+</div>
