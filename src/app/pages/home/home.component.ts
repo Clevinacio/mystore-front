@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
             e.preventDefault();
             e.stopPropagation();
         } else {
-            this.router.navigate(['/home'])
+            this.router.navigate(['/products'])
         }
         form.classList.add('was-validated');
     }
