@@ -1,5 +1,39 @@
 <div class="container">
-    <p>home works!</p>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <h1>Bem vindo(a) a MyStore!</h1>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <h2>Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="secondName">Usuário <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="secondName" placeholder="Digite seu usuário para login"
+                        required>
+                    <div class="invalid-feedback">Campo obrigatório</div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha <span style="color: red;">*</span></label>
+                    <input type="password" class="form-control" id="exampleInputPassword1"
+                        placeholder="Digite sua senha" required>
+                    <div class="invalid-feedback">Campo obrigatório</div>
+                </div>
+                <button class="btn btn-primary" routerLink="/products">Entrar</button>
+            </form>
+        </div>
+        <div class="col-md-auto">
+            <div class="vl"></div>
+        </div>
+        <div class="col-md-4">
+            <h2>Cadastro</h2>
+            <div class="row justify-content-md-center">
+                <div class="col-md-8">
+                    <p>Não possui conta?<br><a routerLink="/form">Clique aqui</a> para criar uma conta nova</p>
+                </div>
+            </div>
 
-    <button class="btn btn-primary" routerLink="/products">Entrar</button>
+        </div>
+    </div>
 </div>
