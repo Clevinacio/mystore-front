@@ -20,8 +20,7 @@ export class ProductsComponent implements OnInit {
         });
     }
 
-    buy(content: Product) {
-        console.log(content)
+    buy() {
         this.router.navigate(['/cart']);
     }
 }
