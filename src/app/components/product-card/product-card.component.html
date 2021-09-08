@@ -1,0 +1,12 @@
+<div class="product-card" >
+  <div class="product-card-header">
+    <h4>{{ product.name }}</h4>
+    <h5>R$ {{ product.price.toFixed(2) }}</h5>
+  </div>
+  <div class="product-card-body text-truncate" style="max-height: 500px;">
+    {{ product.desc }}
+  </div>
+  <div class="product-card-footer">
+    <a class="btn btn-primary">Comprar</a>
+  </div>
+</div>
