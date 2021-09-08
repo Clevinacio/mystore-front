@@ -4,13 +4,13 @@
             <h2 style="text-align: center;">Crie sua conta</h2>
             <form class="needs-validation">
                 <div class="form-group">
-                    <label for="name">Nome <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" id="name" placeholder="Digite seu nome" required>
+                    <label for="first_name">Nome <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="first_name" placeholder="Digite seu nome" required>
                     <div class="invalid-feedback">Campo obrigatório</div>
                 </div>
                 <div class="form-group">
-                    <label for="secondName">Sobrenome <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" id="secondName" placeholder="Digite seu sobrenome" required>
+                    <label for="last_name">Sobrenome <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="last_name" placeholder="Digite seu sobrenome" required>
                     <div class="invalid-feedback">Campo obrigatório</div>
                 </div>
                 <div class="form-group">
@@ -19,14 +19,14 @@
                     <div class="invalid-feedback">Campo obrigatório</div>
                 </div>
                 <div class="form-group">
-                    <label for="secondName">Usuário <span style="color: red;">*</span></label>
-                    <input type="text" class="form-control" id="secondName" placeholder="Digite seu usuário para login"
+                    <label for="username">Usuário <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="username" placeholder="Digite seu usuário para login"
                         required>
                     <div class="invalid-feedback">Campo obrigatório</div>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha <span style="color: red;">*</span></label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"
+                    <input type="password" class="form-control" id="password"
                         placeholder="Digite sua senha" required>
                     <div class="invalid-feedback">Campo obrigatório</div>
                 </div>
@@ -38,4 +38,21 @@
             </form>
         </div>
     </div>
+    <button class="btn btn-outline-primary mb-2 mr-2" (click)="openSuccessModal()">Modal vertically centered</button>
 </div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Usuário criado com sucesso</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>O usuário foi criado com sucesso! Faça login para continuar</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="homeRedirect()">Ir para home</button>
+  </div>
+</ng-template>
