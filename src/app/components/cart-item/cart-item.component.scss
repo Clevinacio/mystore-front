@@ -1,0 +1,21 @@
+.cart-item-card{
+  padding: 1rem;
+  border-radius: 0.3125rem;
+  background-color: #fff;
+  box-shadow: 0 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.5);
+  margin: 2rem 0;
+}
+.item-product-name, .item-total-price{
+  font-size: 1.45rem;
+  font-weight: bolder;
+}
+.cart-item-card-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+}
+.item-quantity{
+  width: 3.125rem;
+  margin-right: 1.25rem;
+  display: inline-block;
+}

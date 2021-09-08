@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart.component';
-import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
+import { CartItemComponent } from 'src/app/components/cart-item/cart-item.component';
 
 @NgModule({
     imports: [
@@ -11,7 +11,7 @@ import { ProductCardComponent } from 'src/app/components/product-card/product-ca
     ],
     declarations: [
         CartComponent,
-        ProductCardComponent
+        CartItemComponent,
     ]
 })
 export class CartModule { }
