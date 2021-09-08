@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -20,14 +19,22 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  // Obtem todos os carros
   getProducts(): Observable<Product[]> {
-    console.log('TESTOU');
     return this.httpClient.get<Product[]>(this.url)
       .pipe(
         retry(2),
         catchError(this.handleError))
   }
+
+  
+  getCarById(id: number): Observable<Product> {
+    return this.httpClient.get<Product>(this.url + '/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
   // Manipulação de erros
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
@@ -36,9 +43,10 @@ export class ProductService {
       errorMessage = error.error.message;
     } else {
       // Erro ocorreu no lado do servidor
-      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
+      errorMessage = `Código do erro: ${error.status}, ` + `mensagem: ${error.message}`;
     }
     console.log(errorMessage);
     return throwError(errorMessage);
   };
+
 }
