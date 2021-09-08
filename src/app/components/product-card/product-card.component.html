@@ -1,12 +1,32 @@
-<div class="product-card" >
-  <div class="product-card-header">
-    <h4>{{ product.name }}</h4>
-    <h5>R$ {{ product.price.toFixed(2) }}</h5>
-  </div>
-  <div class="product-card-body text-truncate" style="max-height: 500px;">
-    {{ product.desc }}
-  </div>
-  <div class="product-card-footer">
-    <a class="btn btn-primary">Comprar</a>
-  </div>
+<div class="product-card">
+    <div class="product-card-header">
+        <h4>{{ product.name }}</h4>
+        <h5>R$ {{ product.price.toFixed(2) }}</h5>
+    </div>
+    <div class="product-card-body text-truncate" style="max-height: 500px;">
+        {{ product.desc }}
+    </div>
+
+    <!-- MODAL -->
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Adicionado ao carrinho</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>O produto <strong>{{product.name}}</strong> foi adicionado ao carrinho.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="redirectToCart(); modal.close('Save click')">Ir para
+                carrinho</button>
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fechar</button>
+        </div>
+    </ng-template>
+
+    <div class="product-card-footer">
+        <button class="btn btn-primary" (click)="addToCart(content)" data-toggle="modal"
+            data-target="#exampleModal">Comprar</button>
+    </div>
 </div>
