@@ -3,5 +3,10 @@
 }
 
 .row{
-    margin-top: 20px;
+    .col-4{
+        transition: top 0.2s;
+  :hover{
+      top: -10px;
+  }
+    }
 }
