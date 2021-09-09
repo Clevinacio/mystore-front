@@ -27,6 +27,17 @@ export class CartService {
         catchError(this.handleError))
   }
 
+  addCartItem(cartItem: CartItem): Observable<CartItem> {
+    return this.httpClient.post<CartItem>(this.url, JSON.stringify(cartItem), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // TODO: Remover item do carrinho usando DELETE no /customers/:id/cart/
+  // TODO: Atualizar item do carrinho (quantidade) usando PUT no /customers/:id/cart/ (necessita implementar o endpoint)
+
   // Manipulação de erros
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
