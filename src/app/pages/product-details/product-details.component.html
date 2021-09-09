@@ -1,3 +1,30 @@
 <div class="container">
-    <p>product-details works!</p>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h2>Nome do produto</h2>
+            <p>Valor</p>
+            <span>Descrição</span>
+            <div class="button">
+                <button class="btn btn-primary btn-lg" (click)="addToCart(content)">Comprar</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- MODAL -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Adicionado ao carrinho</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>O produto <strong>Produto</strong> foi adicionado ao carrinho.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="redirectToCart(); modal.close()">Ir para
+            carrinho</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Fechar</button>
+    </div>
+</ng-template>
