@@ -31,7 +31,7 @@ export class ProductService {
 
 
     getProductById(id: number): Observable<Product> {
-        return this.httpClient.get<Product>(this.url + id)
+        return this.httpClient.get<Product>(this.url + id + '/')
             .pipe(
                 catchError(this.handleError)
             )

@@ -4,5 +4,5 @@ export interface CartItem {
   id: number;
   quantity: number;
   user: object;
-  product: Product;
+  product: Product|number;
 }

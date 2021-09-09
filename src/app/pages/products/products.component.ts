@@ -26,10 +26,12 @@ export class ProductsComponent implements OnInit {
         let cartItem: CartItem = {
             id: this.cartSize + 1,
             quantity: 1,
-            user: JSON.parse(<string>sessionStorage.getItem('customer')),
-            product: product
+            user: JSON.parse(<string>sessionStorage.getItem('customer'))['id'],
+            product: product.id
         }
-        this.cartService.addCartItem(cartItem);
+        this.cartService.addCartItem(cartItem).subscribe((item: CartItem) =>{
+            console.log(item)
+        });
         this.cartService.getCartItems().subscribe((items: CartItem[]) => {
             console.log(items);
         });
