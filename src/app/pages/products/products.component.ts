@@ -1,8 +1,9 @@
+import { CartItem } from './../../models/cart-item';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
-
+import { CartService } from 'src/app/services/cart.service';
 @Component({
     selector: 'app-products',
     templateUrl: './products.component.html',
@@ -11,16 +12,24 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductsComponent implements OnInit {
 
     products: Product[] = [];
-
-    constructor(private productService: ProductService, private router: Router) { }
+    cartSize: number = 0
+    constructor(private productService: ProductService, private cartService: CartService, private router: Router) { }
 
     ngOnInit() {
         this.productService.getProducts().subscribe((products: Product[]) => {
             this.products = products;
+            this.cartSize = this.cartService.getCartItems.length;
         });
     }
 
-    buy() {
-        this.router.navigate(['/cart']);
+    buy(product: Product) {
+        let cartItem: CartItem = {
+            id: this.cartSize + 1,
+            quantity: 1,
+            user: JSON.parse(<string>sessionStorage.getItem('customer'))['id'],
+            product: product.id
+        }
+        this.cartService.addCartItem(cartItem).subscribe();
+        this.cartService.getCartItems().subscribe();
     }
 }

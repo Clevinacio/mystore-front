@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
-    constructor(private modalService: NgbModal) { }
+    constructor(private modalService: NgbModal, private router: Router) { }
     @Input() product: any;
     @Output() buy = new EventEmitter();
     ngOnInit(): void {
@@ -16,9 +17,10 @@ export class ProductCardComponent implements OnInit {
 
     addToCart(content: any) {
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+        this.buy.emit();
     }
 
     redirectToCart() {
-        this.buy.emit();
+        this.router.navigate(['/cart']);
     }
 }
