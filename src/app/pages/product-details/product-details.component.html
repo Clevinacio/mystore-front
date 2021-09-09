@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-4">
-            <h2>Nome do produto</h2>
-            <p>Valor</p>
-            <span>Descrição</span>
+            <h2>{{this.product?.name}}</h2>
+            <p>R$ {{ (this.product?.price)?.toFixed(2)  }}</p>
+            <span>{{ this.product?.desc }}</span>
             <div class="button">
                 <button class="btn btn-primary btn-lg" (click)="addToCart(content)">Comprar</button>
             </div>
