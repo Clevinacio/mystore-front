@@ -32,8 +32,7 @@ export class CustomerService {
     login(username: string, password: string): Observable<Customer> {
         return this.httpClient.post<Customer>(this.base_url + 'login/', JSON.stringify({ username: username, password: password }), this.httpOptions)
             .pipe(
-                retry(2),
-                catchError(this.handleError)
+                retry(2)
             )
     }
 

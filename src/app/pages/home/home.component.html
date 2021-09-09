@@ -34,3 +34,27 @@
         </div>
     </div>
 </div>
+
+<!-- MODAL -->
+<ng-template #content_user_not_found let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Usuário não encontrado</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>O usuário não foi encontrado, verifique o seu login</p>
+    </div>
+</ng-template>
+<ng-template #content_wrong_password let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Senha errada</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>As credenciais não conferem</p>
+    </div>
+</ng-template>
