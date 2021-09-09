@@ -45,9 +45,9 @@ export class FormComponent implements OnInit {
             password: (<HTMLInputElement>document.getElementById('password')).value,
             email: (<HTMLInputElement>document.getElementById('email')).value,
           }
-            this.customerService.createCustomer(<Customer>customer).subscribe((customer: Customer) => {
-              this.openSuccessModal();
-            });
+          this.customerService.createCustomer(<Customer>customer).subscribe((customer: Customer) => {
+            this.openSuccessModal();
+          });
         }
         form.classList.add('was-validated');
     }

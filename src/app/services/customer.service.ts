@@ -9,7 +9,8 @@ import { Customer } from '../models/customer';
 })
 export class CustomerService {
 
-  url = 'https://mystore-fwjs.herokuapp.com/api/customers/';
+  base_url = 'https://mystore-fwjs.herokuapp.com/api/';
+  url = this.base_url +'customers/';
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -21,7 +22,6 @@ export class CustomerService {
 
   
   createCustomer(customer: Customer): Observable<Customer> {
-    console.log(customer)
     return this.httpClient.post<Customer>(this.url, JSON.stringify(customer), this.httpOptions)
       .pipe(
         retry(2),
@@ -29,6 +29,15 @@ export class CustomerService {
       )
   }
 
+  login(username: string, password: string): Observable<Customer> {
+    return this.httpClient.post<Customer>(this.base_url+'login/', JSON.stringify({username:username, password: password}), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  
   // Manipulação de erros
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
