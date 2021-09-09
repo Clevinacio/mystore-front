@@ -24,6 +24,8 @@ export class CartComponent implements OnInit {
     }
 
     finalizePurchase(content: any) {
+        this.cartService.cleanCartItem().subscribe();
+        this.reloadComponent();
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
     }
 
@@ -31,4 +33,10 @@ export class CartComponent implements OnInit {
         this.router.navigate(['/products']);
     }
 
+    reloadComponent() {
+        let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
 }
