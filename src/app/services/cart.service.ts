@@ -1,4 +1,5 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, JsonpInterceptor } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
@@ -28,7 +29,6 @@ export class CartService {
     }
 
     addCartItem(cartItem: CartItem): Observable<CartItem> {
-        console.log(cartItem)
         return this.httpClient.post<CartItem>(this.url, JSON.stringify(cartItem), this.httpOptions)
             .pipe(
                 retry(2),
@@ -36,9 +36,22 @@ export class CartService {
             )
     }
 
-    // TODO: Remover item do carrinho usando DELETE no /customers/:id/cart/
-    // TODO: Atualizar item do carrinho (quantidade) usando PUT no /customers/:id/cart/ (necessita implementar o endpoint)
+    cleanCartItem(product_id: number|null=null): Observable<any>{
+        // Se não for passado um id, limpa todos os itens do carrinho
+        return this.httpClient.request('delete', this.url, {body: JSON.stringify(product_id ? {product:product_id} : {}), headers: this.httpOptions.headers}).pipe(
+            retry(2),
+            catchError(this.handleError)
+        )
+    }
 
+    updateCartItemQuantity(quantity: number, product_id: number): Observable<CartItem> {
+      console.log(quantity, product_id);
+        return this.httpClient.put<CartItem>(this.url, JSON.stringify({product: product_id, quantity: quantity}), this.httpOptions)
+          .pipe(
+              retry(2),
+              catchError(this.handleError)
+          )
+    }
     // Manipulação de erros
     handleError(error: HttpErrorResponse) {
         let errorMessage = '';

@@ -5,8 +5,8 @@
     </div>
     <div class="cart-item-card-quantity mt-4">
 
-        <input type="number" class="item-quantity form-control" value="{{item.quantity}}">
-      <button class="btn btn-info btn-sm mr-2">Salvar</button>
-      <button class="btn btn-danger btn-sm">Remover</button>
+        <input type="number" class="item-quantity form-control" id="item-quantity-{{item.product.id}}" value="{{item.quantity}}">
+      <button class="btn btn-info btn-sm mr-2" (click)="upateQuantity(item.product.id)">Salvar</button>
+      <button class="btn btn-danger btn-sm" (click)="removeFromCart(item.product.id)">Remover</button>
     </div>
 </div>
