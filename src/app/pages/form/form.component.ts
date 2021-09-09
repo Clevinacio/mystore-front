@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Customer } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,7 +12,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class FormComponent implements OnInit {
 
     constructor(
-        private route: ActivatedRoute,
         private router: Router,
         private customerService: CustomerService,
         private modalService: NgbModal) { }
