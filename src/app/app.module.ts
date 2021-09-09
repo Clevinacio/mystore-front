@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from './layouts/layout.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 @NgModule({
     declarations: [
         AppComponent
