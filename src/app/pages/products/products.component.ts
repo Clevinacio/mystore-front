@@ -29,11 +29,7 @@ export class ProductsComponent implements OnInit {
             user: JSON.parse(<string>sessionStorage.getItem('customer'))['id'],
             product: product.id
         }
-        this.cartService.addCartItem(cartItem).subscribe((item: CartItem) =>{
-            console.log(item)
-        });
-        this.cartService.getCartItems().subscribe((items: CartItem[]) => {
-            console.log(items);
-        });
+        this.cartService.addCartItem(cartItem).subscribe();
+        this.cartService.getCartItems().subscribe();
     }
 }
