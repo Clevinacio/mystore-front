@@ -9,7 +9,8 @@ import { CartItem } from '../models/cart-item';
 })
 export class CartService {
 
-  url = 'https://mystore-fwjs.herokuapp.com/api/customers/1/cart/'; // TODO: Ao logar, passar o id correto do usuário
+  customer = JSON.parse(<string>sessionStorage.getItem('customer'));
+  url = `https://mystore-fwjs.herokuapp.com/api/customers/${this.customer['id']}/cart/`; // TODO: Ao logar, passar o id correto do usuário
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -25,6 +26,17 @@ export class CartService {
         retry(2),
         catchError(this.handleError))
   }
+
+  addCartItem(cartItem: CartItem): Observable<CartItem> {
+    return this.httpClient.post<CartItem>(this.url, JSON.stringify(cartItem), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // TODO: Remover item do carrinho usando DELETE no /customers/:id/cart/
+  // TODO: Atualizar item do carrinho (quantidade) usando PUT no /customers/:id/cart/ (necessita implementar o endpoint)
 
   // Manipulação de erros
   handleError(error: HttpErrorResponse) {

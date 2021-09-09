@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Customer } from 'src/app/models/customer';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
     selector: 'app-home',
@@ -8,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(private route: ActivatedRoute, private router: Router) { }
+    constructor(private route: ActivatedRoute, private router: Router, private customerService: CustomerService,) { }
 
     ngOnInit(): void {
     }
@@ -19,7 +21,13 @@ export class HomeComponent implements OnInit {
             e.preventDefault();
             e.stopPropagation();
         } else {
-            this.router.navigate(['/products'])
+          const username= (<HTMLInputElement>document.getElementById('username')).value;
+          const password= (<HTMLInputElement>document.getElementById('password')).value;
+          this.customerService.login(username, password).subscribe((customer: Customer) => {
+            sessionStorage.setItem('customer', JSON.stringify(customer));
+            this.router.navigate(['/products']);
+          });
+          e.preventDefault()
         }
         form.classList.add('was-validated');
     }
