@@ -1,0 +1,24 @@
+.container{
+    min-height: 100vh;
+
+    .row{
+        margin: 250px 0;
+        text-align: center;
+    }
+
+    h2{
+        font-weight: bold;
+    }
+
+    p{
+        font-size: 30px;
+    }
+
+    span{
+        color: gray;
+    }
+
+    .button{
+        margin: 20px 0;
+    }
+}
