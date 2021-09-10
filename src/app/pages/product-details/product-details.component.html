@@ -2,10 +2,10 @@
     <div class="row justify-content-center">
         <div class="col-4">
             <h2>{{this.product?.name}}</h2>
-            <p>R$ {{ (this.product?.price)?.toFixed(2)  }}</p>
+            <p>R$ {{ (this.product?.price)?.toFixed(2) }}</p>
             <span>{{ this.product?.desc }}</span>
             <div class="button">
-                <button class="btn btn-primary btn-lg" (click)="addToCart(content)">Comprar</button>
+                <button class="btn btn-primary btn-lg" (click)="addToCart(content, this.product)">Comprar</button>
             </div>
         </div>
     </div>
