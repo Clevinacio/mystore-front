@@ -2,11 +2,9 @@
     min-height: 100vh;
 }
 
-.row{
-    .col-4{
-        transition: top 0.2s;
-  :hover{
-      top: -10px;
-  }
+.col-4{
+    :hover{
+        top: -5px;
     }
 }
+
